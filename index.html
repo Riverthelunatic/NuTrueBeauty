@@ -165,6 +165,48 @@
     .buy-now:hover {
       background-color: #436b4a;
     }
+    .brand-section {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+  }
+
+    .brand-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  
+    .brand-logo {
+      max-width: 120px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+    }
+  
+    .brand-main-image {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+    }
+  
+    .brand-text {
+      margin-top: 30px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: #222;
+    }
+  
+    .brand-text p {
+      margin: 12px 0;
+    }
+  
+    @media (max-width: 768px) {
+      .brand-text {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -249,6 +291,23 @@
   </div>
   
   <h1 class="Subheading">SINCERITY · NATURE · TECHNOLOGY</h1>
+  <section class="brand-section">
+    <div class="brand-container">
+      <!-- Logo (replace src with your logo) -->
+      <img src="logo.png" alt="Nutree Logo" class="brand-logo">
+  
+      <!-- Main Product Image (replace src with your product image) -->
+      <img src="products.png" alt="Nutree Products" class="brand-main-image">
+  
+      <!-- Brand text -->
+      <div class="brand-text">
+        <p>A clean beauty brand built on:</p>
+        <p>Fragrance-free, alcohol-free, non-irritating formulations</p>
+        <p>High-performance actives + gentle botanical extracts</p>
+        <p>Products designed specifically for sensitive, acne-prone, and aging skin</p>
+      </div>
+    </div>
+  </section>
   <a href="#" class="buy-now">Buy Now</a>
   <script>
     let index = 0;
