@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skincare Carousel with Sections</title>
+  <title>Nutree Skincare</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #222;
     }
 
     /* Navbar */
@@ -16,43 +18,56 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #ddd;
     }
 
-    .navbar h1 {
-      margin: 0;
-      font-size: 1.5rem;
+    .navbar a {
       color: black;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
     }
 
-    /* Carousel */
-    .carousel {
+    /* Subheading */
+    .subheading {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 30px 0;
+    }
+
+    /* Slider */
+    .slider {
       position: relative;
-      max-width: 800px;
-      margin: 2rem auto;
+      max-width: 1000px;
+      height: 400px;
+      margin: 0 auto;
       overflow: hidden;
       border-radius: 10px;
     }
 
     .slides {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.6s ease-in-out;
+      width: 100%;
     }
 
     .slide {
       min-width: 100%;
-      box-sizing: border-box;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .slide img {
       width: 100%;
-      height: 400px;
+      height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     /* Arrows */
@@ -60,7 +75,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.5);
       color: white;
       border: none;
       padding: 10px;
@@ -68,79 +83,63 @@
       border-radius: 50%;
     }
 
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .prev { left: 15px; }
+    .next { right: 15px; }
 
     /* Dots */
     .dots {
       text-align: center;
-      margin-top: 10px;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
     }
 
     .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 4px;
-      background-color: #bbb;
-      border-radius: 50%;
       display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background: #bbb;
+      border-radius: 50%;
       cursor: pointer;
     }
 
     .dot.active {
-      background-color: #333;
+      background: #333;
     }
 
     /* Flexbox Sections */
-    .sections {
+    .flex-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 40px 20px;
+      margin: 50px auto;
       max-width: 1200px;
-      margin: auto;
+      padding: 0 20px;
     }
 
-    .section {
-      flex: 1 1 calc(33.333% - 20px);
-      background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
+    .flex-item {
+      flex: 1 1 300px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .section img {
+    .flex-item img {
       width: 100px;
-      height: auto;
-      margin-bottom: 15px;
+      height: 100px;
+      object-fit: contain;
     }
 
-    .section h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: #333;
+    .flex-item h3 {
+      margin-top: 15px;
+      font-size: 20px;
     }
 
-    .section ul {
+    .flex-item ul {
       list-style: disc;
       text-align: left;
       padding-left: 20px;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .section {
-        flex: 1 1 calc(50% - 20px);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .section {
-        flex: 1 1 100%;
-      }
+      font-size: 16px;
     }
   </style>
 </head>
@@ -148,15 +147,21 @@
 
   <!-- Navbar -->
   <div class="navbar">
-    <h1>Nutree Skincare</h1>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </div>
 
-  <!-- Carousel -->
-  <div class="carousel">
+  <!-- Subheading -->
+  <div class="subheading">Welcome to Nutree Skincare</div>
+
+  <!-- Slider -->
+  <div class="slider">
     <div class="slides">
-      <div class="slide"><img src="shopcouch.jpeg" alt="Slide 1"></div>
-      <div class="slide"><img src="shopcounter.jpeg" alt="Slide 2"></div>
-      <div class="slide"><img src="shopequipment.jpeg" alt="Slide 3"></div>
+      <div class="slide"><img src="https://via.placeholder.com/1000x400/ff9999/333?text=Slide+1" alt="Slide 1"></div>
+      <div class="slide"><img src="https://via.placeholder.com/1000x400/99ccff/333?text=Slide+2" alt="Slide 2"></div>
+      <div class="slide"><img src="https://via.placeholder.com/1000x400/99ff99/333?text=Slide+3" alt="Slide 3"></div>
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
@@ -164,101 +169,98 @@
   </div>
 
   <!-- Flexbox Sections -->
-  <div class="sections">
-    <div class="section">
-      <img src="https://via.placeholder.com/100" alt="Acne">
+  <div class="flex-container">
+    <div class="flex-item">
       <h3>Acne & Blemishes</h3>
+      <img src="https://via.placeholder.com/100" alt="Acne">
       <ul>
-        <li>Mild Acne: pimples, whiteheads</li>
-        <li>Severe Acne: cystic, inflamed</li>
-        <li>Oily / Combo Skin</li>
+        <li>Mild Acne: occasional pimples</li>
+        <li>Severe Acne: cystic or inflamed</li>
+        <li>Oily/Combination: prone to pores</li>
       </ul>
     </div>
-    <div class="section">
-      <img src="https://via.placeholder.com/100" alt="Dryness">
-      <h3>Dryness</h3>
+    <div class="flex-item">
+      <h3>Dry Skin</h3>
+      <img src="https://via.placeholder.com/100" alt="Dry Skin">
       <ul>
-        <li>Flaky skin</li>
-        <li>Tightness</li>
-        <li>Dehydration</li>
+        <li>Flaky and tight feeling</li>
+        <li>Needs hydration</li>
+        <li>Sensitive to weather</li>
       </ul>
     </div>
-    <div class="section">
-      <img src="https://via.placeholder.com/100" alt="Aging">
-      <h3>Aging Signs</h3>
+    <div class="flex-item">
+      <h3>Anti-Aging</h3>
+      <img src="https://via.placeholder.com/100" alt="Anti Aging">
       <ul>
-        <li>Fine lines</li>
-        <li>Wrinkles</li>
+        <li>Fine lines & wrinkles</li>
         <li>Loss of elasticity</li>
+        <li>Targeted treatments</li>
       </ul>
     </div>
-    <div class="section">
-      <img src="https://via.placeholder.com/100" alt="Sensitivity">
-      <h3>Sensitivity</h3>
-      <ul>
-        <li>Redness</li>
-        <li>Irritation</li>
-        <li>Inflammation</li>
-      </ul>
-    </div>
-    <div class="section">
+    <div class="flex-item">
+      <h3>Hyperpigmentation</h3>
       <img src="https://via.placeholder.com/100" alt="Pigmentation">
-      <h3>Pigmentation</h3>
       <ul>
         <li>Dark spots</li>
-        <li>Uneven tone</li>
+        <li>Uneven skin tone</li>
         <li>Sun damage</li>
       </ul>
     </div>
-    <div class="section">
-      <img src="https://via.placeholder.com/100" alt="Pores">
-      <h3>Large Pores</h3>
+    <div class="flex-item">
+      <h3>Sensitive Skin</h3>
+      <img src="https://via.placeholder.com/100" alt="Sensitive Skin">
       <ul>
-        <li>Clogged pores</li>
-        <li>Blackheads</li>
-        <li>Oily buildup</li>
+        <li>Easily irritated</li>
+        <li>Redness & stinging</li>
+        <li>Gentle products needed</li>
+      </ul>
+    </div>
+    <div class="flex-item">
+      <h3>Hydration</h3>
+      <img src="https://via.placeholder.com/100" alt="Hydration">
+      <ul>
+        <li>Moisture balance</li>
+        <li>Hydrating serums</li>
+        <li>Plump skin look</li>
       </ul>
     </div>
   </div>
 
   <script>
-    const slides = document.querySelector('.slides');
-    const slideItems = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    const dotsContainer = document.querySelector('.dots');
     let index = 0;
+    const slides = document.querySelector('.slides');
+    const slide = document.querySelectorAll('.slide');
+    const total = slide.length;
+    const dotsContainer = document.querySelector('.dots');
 
     // Create dots
-    slideItems.forEach((_, i) => {
+    slide.forEach((_, i) => {
       const dot = document.createElement('span');
       dot.classList.add('dot');
       if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => showSlide(i));
+      dot.addEventListener('click', () => moveTo(i));
       dotsContainer.appendChild(dot);
     });
 
     const dots = document.querySelectorAll('.dot');
 
-    function showSlide(i) {
-      index = i;
-      slides.style.transform = `translateX(${-index * 100}%)`;
+    function updateDots(n) {
       dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
+      dots[n].classList.add('active');
     }
 
-    function prevSlide() {
-      index = (index - 1 + slideItems.length) % slideItems.length;
-      showSlide(index);
+    function moveTo(n) {
+      index = (n + total) % total;
+      slides.style.transform = `translateX(${-index * 100}%)`;
+      updateDots(index);
     }
 
-    function nextSlide() {
-      index = (index + 1) % slideItems.length;
-      showSlide(index);
-    }
+    document.querySelector('.next').addEventListener('click', () => moveTo(index + 1));
+    document.querySelector('.prev').addEventListener('click', () => moveTo(index - 1));
 
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
+    setInterval(() => moveTo(index + 1), 4000);
   </script>
+
 </body>
 </html>
+
