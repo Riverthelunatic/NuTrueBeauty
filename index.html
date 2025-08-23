@@ -38,8 +38,34 @@
         padding: 20px;
         color: rgb(0, 0, 0);
         text-align: center;
+    }
 
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
 
+    .slideshow-container img {
+        width: 100%;
+        display: none;
+        border-radius: 10px;
+    }
+
+    /* Show first image by default */
+    .slideshow-container img.active {
+        display: block;
+    }
+
+    /* Fade animation */
+    .fade {
+        animation: fade 1.5s;
+    }
+
+    @keyframes fade {
+        from {opacity: 0.4} 
+        to {opacity: 1}
     }
   </style>
 </head>
@@ -50,7 +76,31 @@
     <a href="#shop">Shop Products</a>
     <a href="#contact">Contact Us</a>
   </nav>
+
   <h1 class="Subheading">SINCERITY · NATURE · TECHNOLOGY</h1>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <img src="image1.jpg" class="active fade">
+    <img src="image2.jpg" class="fade">
+    <img src="image3.jpg" class="fade">
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slideshow-container img");
+
+    function showSlides() {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+      });
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+
+    // Change image every 3 seconds
+    setInterval(showSlides, 3000);
+  </script>
 
 </body>
 </html>
