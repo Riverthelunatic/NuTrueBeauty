@@ -3,138 +3,262 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skin Concerns</title>
+  <title>Skincare Carousel with Sections</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 40px;
-      background: #fff;
-      color: #222;
+      font-family: Arial, sans-serif;
     }
 
-    .container {
+    /* Navbar */
+    .navbar {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: black;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Arrows */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Dots */
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #333;
+    }
+
+    /* Flexbox Sections */
+    .sections {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .card {
-      flex: 1 1 calc(33.333% - 30px);
-      max-width: calc(33.333% - 30px);
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    .section {
+      flex: 1 1 calc(33.333% - 20px);
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 10px;
       padding: 20px;
       text-align: center;
-      transition: transform 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
+    .section img {
       width: 100px;
       height: auto;
       margin-bottom: 15px;
     }
 
-    .card h3 {
-      margin: 10px 0;
+    .section h3 {
+      margin-bottom: 10px;
       font-size: 1.2rem;
-      font-weight: bold;
+      color: #333;
     }
 
-    .card ul {
+    .section ul {
+      list-style: disc;
       text-align: left;
       padding-left: 20px;
-      font-size: 0.95rem;
-      line-height: 1.6;
     }
 
     /* Responsive */
-    @media (max-width: 992px) {
-      .card {
-        flex: 1 1 calc(50% - 30px);
-        max-width: calc(50% - 30px);
+    @media (max-width: 900px) {
+      .section {
+        flex: 1 1 calc(50% - 20px);
       }
     }
 
     @media (max-width: 600px) {
-      .card {
+      .section {
         flex: 1 1 100%;
-        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1 style="text-align:center; margin-bottom:40px;">Skin Concerns</h1>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Nutree Skincare</h1>
+  </div>
 
-  <div class="container">
-    <div class="card">
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="slides">
+      <div class="slide"><img src="https://via.placeholder.com/800x400/ff7f7f/fff?text=Slide+1" alt="Slide 1"></div>
+      <div class="slide"><img src="https://via.placeholder.com/800x400/7fbfff/fff?text=Slide+2" alt="Slide 2"></div>
+      <div class="slide"><img src="https://via.placeholder.com/800x400/7fff7f/fff?text=Slide+3" alt="Slide 3"></div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+
+  <!-- Flexbox Sections -->
+  <div class="sections">
+    <div class="section">
       <img src="https://via.placeholder.com/100" alt="Acne">
       <h3>Acne & Blemishes</h3>
       <ul>
-        <li>Mild Acne: occasional pimples, whiteheads, blackheads</li>
-        <li>Severe Acne: cystic or inflamed acne</li>
-        <li>Oily / Combination Skin: prone to clogged pores</li>
+        <li>Mild Acne: pimples, whiteheads</li>
+        <li>Severe Acne: cystic, inflamed</li>
+        <li>Oily / Combo Skin</li>
       </ul>
     </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/100" alt="Dry Skin">
+    <div class="section">
+      <img src="https://via.placeholder.com/100" alt="Dryness">
       <h3>Dryness</h3>
       <ul>
-        <li>Flaky or rough texture</li>
-        <li>Tightness after cleansing</li>
-        <li>Prone to irritation</li>
+        <li>Flaky skin</li>
+        <li>Tightness</li>
+        <li>Dehydration</li>
       </ul>
     </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/100" alt="Wrinkles">
-      <h3>Aging</h3>
+    <div class="section">
+      <img src="https://via.placeholder.com/100" alt="Aging">
+      <h3>Aging Signs</h3>
       <ul>
-        <li>Fine lines & wrinkles</li>
+        <li>Fine lines</li>
+        <li>Wrinkles</li>
         <li>Loss of elasticity</li>
-        <li>Uneven skin tone</li>
       </ul>
     </div>
-
-    <div class="card">
+    <div class="section">
+      <img src="https://via.placeholder.com/100" alt="Sensitivity">
+      <h3>Sensitivity</h3>
+      <ul>
+        <li>Redness</li>
+        <li>Irritation</li>
+        <li>Inflammation</li>
+      </ul>
+    </div>
+    <div class="section">
       <img src="https://via.placeholder.com/100" alt="Pigmentation">
       <h3>Pigmentation</h3>
       <ul>
         <li>Dark spots</li>
-        <li>Uneven skin tone</li>
+        <li>Uneven tone</li>
         <li>Sun damage</li>
       </ul>
     </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/100" alt="Sensitivity">
-      <h3>Sensitivity</h3>
-      <ul>
-        <li>Redness or irritation</li>
-        <li>Burning sensation</li>
-        <li>Reacts to products</li>
-      </ul>
-    </div>
-
-    <div class="card">
+    <div class="section">
       <img src="https://via.placeholder.com/100" alt="Pores">
-      <h3>Enlarged Pores</h3>
+      <h3>Large Pores</h3>
       <ul>
-        <li>Visible pores</li>
-        <li>Oily shine</li>
+        <li>Clogged pores</li>
         <li>Blackheads</li>
+        <li>Oily buildup</li>
       </ul>
     </div>
   </div>
 
+  <script>
+    const slides = document.querySelector('.slides');
+    const slideItems = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots');
+    let index = 0;
+
+    // Create dots
+    slideItems.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => showSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(i) {
+      index = i;
+      slides.style.transform = `translateX(${-index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slideItems.length) % slideItems.length;
+      showSlide(index);
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slideItems.length;
+      showSlide(index);
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+  </script>
 </body>
 </html>
