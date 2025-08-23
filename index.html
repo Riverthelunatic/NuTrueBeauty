@@ -3,178 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slideshow with Navbar</title>
+  <title>Skin Concerns</title>
   <style>
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #fff;
+      color: #222;
     }
 
-    /* Green background wrapper */
-    .header-section {
-        background-color: rgb(217, 255, 204);
-        text-align: center;
-        position: relative;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
 
-    /* Transparent navbar so green shows */
-    .navbar {
-        background-color: transparent;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 15px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+    .card {
+      flex: 1 1 calc(33.333% - 30px);
+      max-width: calc(33.333% - 30px);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
     }
 
-    .navbar a {
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 20px;
-        font-size: 16px;
-        transition: color 0.3s ease;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
-    .navbar a:hover {
-        color: #54845d; 
+    .card img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 15px;
     }
 
-    /* Heading under navbar */
-    .Subheading {
-        padding: 20px;
-        color: rgb(0, 0, 0);
-        margin: 0;
+    .card h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
 
-    /* Slideshow */
-    .slideshow-container {
-        max-width: 1000px;
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        border-radius: 10px;
+    .card ul {
+      text-align: left;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
+    /* Responsive */
+    @media (max-width: 992px) {
+      .card {
+        flex: 1 1 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+      }
     }
 
-    .slides img {
-        width: 100%;
-        flex-shrink: 0;
-    }
-
-    /* Arrows */
-    .prev, .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0,0,0,0.5);
-        color: white;
-        font-weight: bold;
-        padding: 10px;
-        border-radius: 50%;
-        user-select: none;
-        z-index: 10;
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    /* Dots */
-    .dots {
-        text-align: center;
-        margin: 15px 0;
-    }
-
-    .dot {
-        height: 12px;
-        width: 12px;
-        margin: 0 5px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .dot.active {
-        background-color: #54845d;
+    @media (max-width: 600px) {
+      .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Green Background Block -->
-  <div class="header-section">
-    <nav class="navbar">
-      <a href="#book">Book Now</a>
-      <a href="#shop">Shop Products</a>
-      <a href="#contact">Contact Us</a>
-    </nav>
+  <h1 style="text-align:center; margin-bottom:40px;">Skin Concerns</h1>
 
-    <h1 class="Subheading">SINCERITY · NATURE · TECHNOLOGY</h1>
-  </div>
-
-  <!-- Slideshow -->
-  <div class="slideshow-container">
-    <div class="slides">
-      <img src="shopcouch.jpeg" alt="Couch">
-      <img src="shopcounter.jpeg" alt="Counter">
-      <img src="shopequipment.jpeg" alt="Equipment">
+  <div class="container">
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Acne">
+      <h3>Acne & Blemishes</h3>
+      <ul>
+        <li>Mild Acne: occasional pimples, whiteheads, blackheads</li>
+        <li>Severe Acne: cystic or inflamed acne</li>
+        <li>Oily / Combination Skin: prone to clogged pores</li>
+      </ul>
     </div>
 
-    <!-- Arrows -->
-    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Dry Skin">
+      <h3>Dryness</h3>
+      <ul>
+        <li>Flaky or rough texture</li>
+        <li>Tightness after cleansing</li>
+        <li>Prone to irritation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Wrinkles">
+      <h3>Aging</h3>
+      <ul>
+        <li>Fine lines & wrinkles</li>
+        <li>Loss of elasticity</li>
+        <li>Uneven skin tone</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Pigmentation">
+      <h3>Pigmentation</h3>
+      <ul>
+        <li>Dark spots</li>
+        <li>Uneven skin tone</li>
+        <li>Sun damage</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Sensitivity">
+      <h3>Sensitivity</h3>
+      <ul>
+        <li>Redness or irritation</li>
+        <li>Burning sensation</li>
+        <li>Reacts to products</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Pores">
+      <h3>Enlarged Pores</h3>
+      <ul>
+        <li>Visible pores</li>
+        <li>Oily shine</li>
+        <li>Blackheads</li>
+      </ul>
+    </div>
   </div>
-
-  <!-- Dots -->
-  <div class="dots">
-    <span class="dot active" onclick="currentSlide(0)"></span>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-  </div>
-
-  <script>
-    let slideIndex = 0;
-    const slides = document.querySelector(".slides");
-    const totalSlides = document.querySelectorAll(".slides img").length;
-    const dots = document.querySelectorAll(".dot");
-
-    function showSlide(index) {
-      if (index >= totalSlides) slideIndex = 0;
-      else if (index < 0) slideIndex = totalSlides - 1;
-      else slideIndex = index;
-
-      slides.style.transform = `translateX(${-slideIndex * 100}%)`;
-
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[slideIndex].classList.add("active");
-    }
-
-    function changeSlide(n) {
-      showSlide(slideIndex + n);
-    }
-
-    function currentSlide(n) {
-      showSlide(n);
-    }
-
-    // Auto slide every 3s
-    setInterval(() => {
-      changeSlide(1);
-    }, 3000);
-
-    // Init
-    showSlide(slideIndex);
-  </script>
 
 </body>
 </html>
