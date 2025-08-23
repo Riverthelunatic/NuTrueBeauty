@@ -5,68 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
 
     .navbar {
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 15px 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .navbar a {
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 20px;
-        font-size: 16px;
-        transition: color 0.3s ease;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 20px;
+      font-size: 16px;
+      transition: color 0.3s ease;
     }
 
     .navbar a:hover {
-        color: #54845d; 
+      color: #54845d; 
     }
 
     .Subheading {
-        padding: 20px;
-        color: rgb(0, 0, 0);
-        text-align: center;
+      padding: 20px;
+      color: rgb(0, 0, 0);
+      text-align: center;
     }
 
+    /* Slideshow container */
     .slideshow-container {
-        max-width: 1000px;
-        aspect-ratio: 16 / 9; /* keeps slideshow proportional */
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        border-radius: 10px;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
     }
 
     .slideshow-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* crop edges to fill space */
-        display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
     }
 
     .slideshow-container img.active {
-        display: block;
-    }
-
-    .fade {
-        animation: fade 1.5s;
+      display: block;
+      animation: fade 1s;
     }
 
     @keyframes fade {
-        from {opacity: 0.4} 
-        to {opacity: 1}
+      from { opacity: 0.4 }
+      to   { opacity: 1 }
+    }
+
+    /* Next & prev buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 12px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.3s;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.4);
+      user-select: none;
+    }
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Dots */
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .dot.active, .dot:hover {
+      background-color: #54845d;
     }
   </style>
 </head>
@@ -82,25 +120,61 @@
 
   <!-- Slideshow -->
   <div class="slideshow-container">
-    <img src="shopcouch.jpeg" class="active fade">
-    <img src="shopcounter.jpeg" class="fade">
-    <img src="shopequipment.jpeg" class="fade">
+    <img src="shopcouch.jpeg" class="active">
+    <img src="shopcounter.jpeg">
+    <img src="shopequipment.jpeg">
+
+    <!-- Arrows -->
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
   </div>
+
+  <!-- Dots -->
+  <div class="dots"></div>
 
   <script>
     let slideIndex = 0;
     const slides = document.querySelectorAll(".slideshow-container img");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots");
+    let autoSlide;
 
-    function showSlides() {
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => showSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(n) {
       slides.forEach((slide, i) => {
         slide.classList.remove("active");
+        dots[i].classList.remove("active");
       });
-      slideIndex = (slideIndex + 1) % slides.length;
+      slideIndex = (n + slides.length) % slides.length;
       slides[slideIndex].classList.add("active");
+      dots[slideIndex].classList.add("active");
     }
 
-    // Change image every 3 seconds
-    setInterval(showSlides, 3000);
+    function nextSlide() { showSlide(slideIndex + 1); }
+    function prevSlide() { showSlide(slideIndex - 1); }
+
+    next.addEventListener("click", () => { nextSlide(); resetAutoSlide(); });
+    prev.addEventListener("click", () => { prevSlide(); resetAutoSlide(); });
+
+    function autoPlay() {
+      autoSlide = setInterval(() => { nextSlide(); }, 3000);
+    }
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      autoPlay();
+    }
+
+    autoPlay();
   </script>
 
 </body>
