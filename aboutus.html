@@ -66,6 +66,38 @@
     .skin-text p {
       margin: 10px 0;
     }
+        .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 50px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .flex-item {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .flex-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .flex-item h3 {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+
+    .flex-item ul {
+      list-style: disc;
+      text-align: left;
+      padding-left: 20px;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -116,6 +148,62 @@
       </div>
     </div>
   </section>
+
+    <div class="flex-container">
+    <div class="flex-item">
+      <h3>Acne & Blemishes</h3>
+      <img src="acnemagnify.png" alt="Acne">
+      <ul>
+        <li>Mild Acne: occasional pimples</li>
+        <li>Severe Acne: cystic or inflamed</li>
+        <li>Oily/Combination: prone to pores</li>
+      </ul>
+    </div>
+    <div class="flex-item">
+      <h3>Sensitive / Irritated Skin</h3>
+      <img src="acneworried.png" alt="Dry Skin">
+      <ul>
+        <li>Redness, inflammation, or irritation</li>
+        <li>Sensitive to products or environmental factors</li>
+        <li>Conditions like rosacea or eczema</li>
+      </ul>
+    </div>
+    <div class="flex-item">
+      <h3>Aging & Loss of Firmness</h3>
+      <img src="wrinkles.png" alt="Anti Aging">
+      <ul>
+        <li>Fine lines & wrinkles</li>
+        <li>Loss of elasticity and volume</li>
+        <li>Sagging or lax skin</li>
+      </ul>
+    </div>
+    <div class="flex-item">
+      <h3>Relaxation & Energy Balance</h3>
+      <img src="skincareconditions.png" alt="Pigmentation">
+      <ul>
+        <li>Relaxing Gua Sha</li>
+        <li>Meridian Therapy</li>
+      </ul>
+    </div>
+    <div class="flex-item">
+      <h3>Dullness / Uneven Tone</h3>
+      <img src="dryskinmagnify.png" alt="Sensitive Skin">
+      <ul>
+        <li>Dry or dehydrated skin</li>
+        <li>Uneven texture or pigmentation</li>
+        <li>Lack of radiance or glow</li>
+      </ul>
+    </div>
+    <div class="flex-item">
+      <h3>Special Concerns / Other Conditions</h3>
+      <img src="body.png" alt="Hydration">
+      <ul>
+        <li>IPL Hair Removal</li>
+        <li>Body/contour & pelvic floor</li>
+        <li>Skin Tag Removal</li>
+      </ul>
+    </div>
+  </div>
 
 </body>
 </html>
