@@ -71,23 +71,22 @@
     .brand-text p {
       margin: 12px 0;
     }
-    .buy-now {
-      display: block;
-      margin: 10px auto 10px;
-      padding: 12px 15px;
-      background-color: #54845d;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
+    .buy-btn {
+      display: inline-block;
       text-decoration: none;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 10px 32px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
       border-radius: 5px;
-      transition: background 0.3s ease;
-      text-align: center;
-      width: fit-content;
     }
-
-    .buy-now:hover {
-      background-color: #436b4a;
+    .buy-btn:hover {
+      background: white;
+      color: black;
     }
   
     @media (max-width: 768px) {
@@ -120,8 +119,8 @@
     </div>
 
     <!-- Buttons moved inside -->
-    <a href="https://shopee.com.my/nutree.asia?categoryId=100630&entryPoint=ShopByPDP&itemId=41364973000" class="buy-now">Buy Now</a>
-    <a href="https://nutree.asia/" class="buy-now">Find Out More</a>
+    <a href="https://shopee.com.my/nutree.asia?categoryId=100630&entryPoint=ShopByPDP&itemId=41364973000" class="buy-btn">Buy Now</a>
+    <a href="https://nutree.asia/" class="buy-btn">Find Out More</a>
   </div>
 </section>
 
